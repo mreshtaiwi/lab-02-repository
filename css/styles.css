@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+.image-template{
+    display: none;
+}
+.showImages{
+    width: 200px;
+    height: 200px;
+
+}
+section{
+    margin: 5px;
+    width: 350px;
+    height: 350px;
+    border: 1px solid lightseagreen;
+    float: left;
+    padding: 15px;
+}
+.clearfix{
+    clear: both;
+}
+.show{
+    display: inline;
+}
+.hide{
+    display: none;
+}
