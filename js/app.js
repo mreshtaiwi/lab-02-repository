@@ -9,23 +9,16 @@ function Item(data) {
 }
 Item.prototype.render = function () {
   let listClone = $('.image-template').clone();
-  //listClone.attr('id', this.keyword);
   listClone.addClass(`${this.keyword}`);
   listClone.removeClass('image-template');
   for (let i = 0; i < listClone.length; i++) {
-    //console.log(listClone[i]);
     listClone.html(`
         <h2>${this.title}</h2>
         <img class ='showImages ${this.keyword}' src='${this.image_url}' alt ='${this.keyword}' >
         <p>${this.description}</p>
         `);
   }
-  //   $(function(){
-  //     $('option').each(function(){
-  //       $(this.siblings('[value=' + this.keyword + ']').remove());
-  //     });
-  //   });
-  $('select').append(`<option value='${this.keyword}' name='${this.keyword}'> ${this.keyword}</option>`);
+  $('#mainSelect').append(`<option value='${this.keyword}' name='${this.keyword}'> ${this.keyword}</option>`);
   $('main').append(listClone);
 };
 
@@ -180,18 +173,12 @@ $('select').on('change', function (e) {
 
 
 //read the json file
-$.get('./data/page-1.json')
+$.get('../data/page-1.json')
   .then(data => {
-    // console.log(data);
     data.forEach((value, idx) => {
       let list = new Item(value);
       list.render();
     });
   });
-
-// $('select').on('change', change);
-// function change(){
-//   alert('hi');
-// }
 
 
