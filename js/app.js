@@ -11,6 +11,14 @@ Item.prototype.render = function () {
   let listClone = $('.image-template').clone();
   listClone.addClass(`${this.keyword}`);
   listClone.removeClass('image-template');
+
+  // listClone.forEach( function() {
+  //   listClone.html(`
+  //   <h2>${this.title}</h2>
+  //   <img class ='showImages ${this.keyword}' src='${this.image_url}' alt ='${this.keyword}' >
+  //   <p>${this.description}</p>
+  //   `);
+  // });
   for (let i = 0; i < listClone.length; i++) {
     listClone.html(`
         <h2>${this.title}</h2>
