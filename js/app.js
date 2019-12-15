@@ -182,9 +182,9 @@ $('select').on('change', function (e) {
   }
 });
 
-
+let path = '../data/page-1.json';
 //read the json file
-$.get('../data/page-1.json')
+$.get(path)
   .then(data => {
     console.log(data);
     data.forEach((value, idx) => {
