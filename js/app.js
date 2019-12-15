@@ -1,17 +1,20 @@
 /* eslint-disable camelcase */
 'use strict';
+let all = [];
+let droplist = [];
 function Item(data) {
-  this.description = data.description;
-  this.horns = data.horns;
   this.image_url = data.image_url;
   this.keyword = data.keyword;
+  this.description = data.description;
+  this.horns = data.horns;
   this.title = data.title;
+  all.push(this);
 }
 Item.prototype.render = function () {
   let listClone = $('.image-template').clone();
   listClone.addClass(`${this.keyword}`);
   listClone.removeClass('image-template');
-
+  // console.log(all[0].title);
   // listClone.forEach( function() {
   //   listClone.html(`
   //   <h2>${this.title}</h2>
@@ -26,7 +29,7 @@ Item.prototype.render = function () {
         <p>${this.description}</p>
         `);
   }
-  $('#mainSelect').append(`<option value='${this.keyword}' name='${this.keyword}'> ${this.keyword}</option>`);
+  //$('#mainSelect').append(`<option value='${this.keyword}' name='${this.keyword}'> ${this.keyword}</option>`);
   $('main').append(listClone);
 };
 
@@ -187,6 +190,13 @@ $.get('../data/page-1.json')
       let list = new Item(value);
       list.render();
     });
+  })
+  .then(() => {
+    for (let i = 0; i < all.length; i++) {
+      droplist.push(all[i].keyword);
+    }
+    droplist = [...new Set(droplist)];
+    for (let i = 0; i < droplist.length; i++) {
+      $('#mainSelect').append(`<option value='${droplist[i]}' name='${droplist[i]}'> ${droplist[i]}</option>`);
+    }
   });
-
-
