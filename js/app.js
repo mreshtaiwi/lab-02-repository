@@ -184,7 +184,7 @@ $('select').on('change', function (e) {
 
 
 //read the json file
-$.get('../data/page-1.json')
+$.get('/data/page-1.json')
   .then(data => {
     data.forEach((value, idx) => {
       let list = new Item(value);
@@ -195,8 +195,17 @@ $.get('../data/page-1.json')
     for (let i = 0; i < all.length; i++) {
       droplist.push(all[i].keyword);
     }
-    droplist = [...new Set(droplist)];
-    for (let i = 0; i < droplist.length; i++) {
-      $('#mainSelect').append(`<option value='${droplist[i]}' name='${droplist[i]}'> ${droplist[i]}</option>`);
+
+    let newlist = [];
+    droplist.sort().reduce(function(a, b)
+    { if (b !== a[0]) a.unshift(b);
+      return a;
+    }
+    , newlist);
+    console.log(newlist);
+
+    //droplist = [...new Set(droplist)];
+    for (let i = 0; i < newlist.length; i++) {
+      $('#mainSelect').append(`<option value='${newlist[i]}' name='${newlist[i]}'> ${newlist[i]}</option>`);
     }
   });
