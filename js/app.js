@@ -184,7 +184,7 @@ $('select').on('change', function (e) {
 
 
 //read the json file
-$.get('/data/page-1.json')
+$.get('data/page-1.json')
   .then(data => {
     data.forEach((value, idx) => {
       let list = new Item(value);
