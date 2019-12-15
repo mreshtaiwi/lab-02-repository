@@ -186,6 +186,7 @@ $('select').on('change', function (e) {
 //read the json file
 $.get('../data/page-1.json')
   .then(data => {
+    console.log(data);
     data.forEach((value, idx) => {
       let list = new Item(value);
       list.render();
@@ -195,7 +196,6 @@ $.get('../data/page-1.json')
     for (let i = 0; i < all.length; i++) {
       droplist.push(all[i].keyword);
     }
-    
     let newlist = [];
     droplist.sort().reduce(function(a, b)
     { if (b !== a[0]) a.unshift(b);
