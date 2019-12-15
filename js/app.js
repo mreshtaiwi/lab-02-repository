@@ -184,7 +184,7 @@ $('select').on('change', function (e) {
 
 
 //read the json file
-$.get('../data/page-1a.json')
+$.get('../data/page-1.json')
   .then(data => {
     data.forEach((value, idx) => {
       let list = new Item(value);
@@ -202,8 +202,7 @@ $.get('../data/page-1a.json')
       return a;
     }
     , newlist);
-    console.log(newlist);
-
+    //console.log(newlist);
     //droplist = [...new Set(droplist)];
     for (let i = 0; i < newlist.length; i++) {
       $('#mainSelect').append(`<option value='${newlist[i]}' name='${newlist[i]}'> ${newlist[i]}</option>`);
