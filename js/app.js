@@ -195,7 +195,7 @@ $.get('../data/page-1.json')
     for (let i = 0; i < all.length; i++) {
       droplist.push(all[i].keyword);
     }
-
+    
     let newlist = [];
     droplist.sort().reduce(function(a, b)
     { if (b !== a[0]) a.unshift(b);
