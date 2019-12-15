@@ -182,7 +182,7 @@ $('select').on('change', function (e) {
   }
 });
 
-let path = '../data/page-1.json';
+let path = 'data/page-1.json';
 //read the json file
 $.get(path)
   .then(data => {
