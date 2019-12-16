@@ -186,7 +186,7 @@ let path = 'data/page-1.json';
 //read the json file
 $.get(path)
   .then(data => {
-    console.log(data);
+    //console.log(data);
     data.forEach((value, idx) => {
       let list = new Item(value);
       list.render();

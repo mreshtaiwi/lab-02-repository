@@ -18,7 +18,7 @@
     height: 350px;
     border: 3px groove gold ;
 }
-section{
+section,.imagediv{
     margin: 8px;
     width: 350px;
     height: 500px;
