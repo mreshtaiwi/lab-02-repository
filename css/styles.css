@@ -18,7 +18,7 @@
     height: 350px;
     border: 3px groove gold ;
 }
-section,.imagediv{
+.imagediv{
     margin: 8px;
     width: 350px;
     height: 500px;
@@ -31,6 +31,8 @@ section,.imagediv{
 footer{
     margin-top: 25px;
     font-weight: bolder;
+    margin-bottom: 20px;
+    clear: both;
 }
 .clearfix{
     clear: both;
@@ -40,4 +42,7 @@ footer{
 }
 .hide{
     display: none;
+}
+a{
+    text-decoration: none;
 }
