@@ -9,15 +9,16 @@ function Item(data) {
   all.push(this);
 }
 Item.prototype.render = function () {
-  let listClone = $(`
-  <section class='image-template'>
-  <div class='imagediv'>
-    <h2></h2>
-    <img src="" alt="">
-    <p></p>
-  </div>
-  </section>
-  `).clone();
+  // let listClone = $(`
+  // <section class='image-template'>
+  // <div class='imagediv'>
+  //   <h2></h2>
+  //   <img src="" alt="">
+  //   <p></p>
+  // </div>
+  // </section>
+  // `).clone();
+  let listClone = $('.image-template').clone();
   listClone.find('h2').text(this.title);
   listClone.find('img').attr('src', this.image_url);
   listClone.find('img').addClass('showImages');
@@ -42,8 +43,8 @@ $.get(path)
       }
     });
   });
-$('select').on('change', changeView);
 
+$('select').on('change', changeView);
 function changeView() {
   let selected = $(this).val();
   if (selected === 'default') {
